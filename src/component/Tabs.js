@@ -10,43 +10,48 @@ const Tab = createBottomTabNavigator()
 
 
 
-const Tabs = () => {
+const Tabs = ({ weather }) => {
     return (
         <Tab.Navigator
             screenOptions={{
                 tabBarActiveTintColor: 'tomato',
                 tabBarInactiveTintColor: 'grey',
-                tabBarStyle:{
-                    backgroundColor:'lightblue'
+                tabBarStyle: {
+                    backgroundColor: 'lightblue'
                 },
-                headerStyle:{
-                    backgroundColor:'lightblue',
-                    alignSelf:'center'
+                headerStyle: {
+                    backgroundColor: 'lightblue',
+                    alignSelf: 'center'
                 },
-                headerTitleStyle:{
-                    fontWeight:'bold',
-                    fontSize:25,
-                    color:'tomato',
-                    
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                    fontSize: 25,
+                    color: 'tomato',
+
                 }
             }} >
 
-            <Tab.Screen name={'current'} component={CurrentWeather}
+            <Tab.Screen name={'current'}
                 options={{
                     tabBarIcon: ({ focused }) =>
                         <Feather name={'droplet'} size={25}
                             color={focused ? 'tomato' : 'black'}
                         />
                 }}
-            />
+            >
+                {() => <CurrentWeather weatherData={weather.list[0]} />}
+            </Tab.Screen>
 
-            <Tab.Screen name={'upcoming'} component={UpcomingWeather}
+            <Tab.Screen name={'upcoming'}
                 options={{
                     tabBarIcon: ({ focused }) => <Feather name={'clock'} size={25}
                         color={focused ? 'tomato' : 'black'}
                     />
                 }}
-            />
+            >
+                {() => <UpcomingWeather weatherData={weather.list} />}
+
+            </Tab.Screen>
 
             <Tab.Screen name={'city'} component={City}
                 options={{
