@@ -1,9 +1,9 @@
-
 import { NavigationContainer } from '@react-navigation/native';
 import Tabs from './src/component/Tabs';
 import { ActivityIndicator, View, StyleSheet } from 'react-native';
 import { useGetWeather } from './hooks/useGetWeather';
 import ErrorItem from './src/component/ErrorItem';
+
 
 const App = () => {
   const [loading, error, weather] = useGetWeather()
