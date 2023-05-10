@@ -21,7 +21,7 @@ const Tabs = ({ weather }) => {
                 },
                 headerStyle: {
                     backgroundColor: 'lightblue',
-                    alignSelf: 'center'
+                    
                 },
                 headerTitleStyle: {
                     fontWeight: 'bold',
@@ -49,17 +49,20 @@ const Tabs = ({ weather }) => {
                     />
                 }}
             >
+
                 {() => <UpcomingWeather weatherData={weather.list} />}
 
             </Tab.Screen>
 
-            <Tab.Screen name={'city'} component={City}
+            <Tab.Screen name={'city'} 
                 options={{
                     tabBarIcon: ({ focused }) => <Feather name={'home'} size={25}
                         color={focused ? 'tomato' : 'black'}
                     />
                 }}
-            />
+            >
+                {()=><City weatherData={weather.city}/>}
+            </Tab.Screen>
 
         </Tab.Navigator>
     )

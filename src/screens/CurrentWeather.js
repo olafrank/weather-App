@@ -19,11 +19,11 @@ const CurrentWeather = ({ weatherData }) => {
     <SafeAreaView style={[wrapper, { backgroundColor: weatherType[weatherCondition].backgroundColor }]}>
       <View style={container} >
         <Feather name={weatherType[weatherCondition].icon} size={100} color='white' />
-        <Text style={tempStyle}>{temp}</Text>
-        <Text style={feels}>{`feels like ${feels_like}`}</Text>
+        <Text style={tempStyle}>{temp}°</Text>
+        <Text style={feels}>{`feels like ${feels_like}°`}</Text>
 
-        <RowText messageOne={`High :${temp_max}`}
-          messageTwo={`Low : ${temp_min} `}
+        <RowText messageOne={`High :${temp_max}°`}
+          messageTwo={`Low : ${temp_min}° `}
           containerStyles={highLowWrapper}
           messageOneStyles={highLow}
           messageTwoStyles={highLow}
@@ -44,11 +44,12 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    
   },
   wrapper: {
     flex: 1,
-    backgroundColor: 'pink',
+    backgroundColor: 'lightblue',
   },
   tempStyle: {
     color: 'black',
